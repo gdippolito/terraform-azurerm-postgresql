@@ -53,6 +53,8 @@ module "postgresql" {
   postgresql_configurations = {
     backslash_quote = "on",
   }
+  lifecycle_prevent_destroy = true
+  lifecycle_ignore_changes  = [tags]
 
   depends_on = [azurerm_resource_group.example]
 }
@@ -108,6 +110,8 @@ module "postgresql" {
   postgresql_configurations = {
     backslash_quote = "on",
   }
+  lifecycle_prevent_destroy = true
+  lifecycle_ignore_changes  = [tags]  
 }
 ```
 
