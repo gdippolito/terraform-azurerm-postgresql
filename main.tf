@@ -15,6 +15,11 @@ resource "azurerm_postgresql_server" "server" {
   ssl_enforcement_enabled      = var.ssl_enforcement_enabled
 
   tags = var.tags
+
+  lifecycle {
+    prevent_destroy = var.lifecycle_prevent_destroy
+    ignore_changes  = var.lifecycle_ignore_changes
+  }
 }
 
 resource "azurerm_postgresql_database" "dbs" {
@@ -24,6 +29,9 @@ resource "azurerm_postgresql_database" "dbs" {
   server_name         = azurerm_postgresql_server.server.name
   charset             = var.db_charset
   collation           = var.db_collation
+  lifecycle {
+    prevent_destroy = var.lifecycle_prevent_destroy
+  }  
 }
 
 resource "azurerm_postgresql_firewall_rule" "firewall_rules" {

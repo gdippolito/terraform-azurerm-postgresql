@@ -113,3 +113,14 @@ variable "postgresql_configurations" {
   default     = {}
 }
 
+variable "lifecycle_prevent_destroy" {
+  description = "Enable preventing resources from being destroyed during an apply"
+  type        = bool
+  default     = false
+}
+
+variable "lifecycle_ignore_changes" {
+  description = "The list of resources to ignore their changes during an apply. E.g tags"
+  type        = list(string)
+  default     = false
+}
