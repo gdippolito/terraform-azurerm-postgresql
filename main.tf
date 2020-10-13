@@ -31,7 +31,7 @@ resource "azurerm_postgresql_database" "dbs" {
   collation           = var.db_collation
   lifecycle {
     prevent_destroy = var.lifecycle_prevent_destroy
-  }  
+  }
 }
 
 resource "azurerm_postgresql_firewall_rule" "firewall_rules" {
